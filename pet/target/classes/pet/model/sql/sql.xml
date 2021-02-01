@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+
+   
+   <!-- 이메일 중복 검사 -->
+   <select id="check_email" parameterType="String" resultType="int">
+   		select count(*) from member where email = #{email}
+   </select>
+   
+   <!-- 회원 가입 -->
+   <insert id="join_member" parameterType="pet.model.dto.MemberDTO">
+   		insert into member ( no, email, pw, reg_date, log_date, approval_status, approval_key) values
+   																						(Member_seq.NEXTVAL,
+   																						#{email}, 
+   																						#{pw}, 
+   																						sysdate, 
+   																						sysdate, 
+   																						1, 
+   																						#{approval_key})
+   </insert>
+   
+  	<!-- 이메일 인증 -->
+	<update id="approval_member" parameterType="pet.model.dto.MemberDTO">
+		update member set approval_status = 1 where email = #{email, jdbcType=VARCHAR} and approval_key = #{approval_key}
+	</update>
+	
+	<!-- 로그인 -->
+	<select id="login_member" parameterType="String" resultType="register">
+		select * from member where email = #{email}
+	</select>
+	
+	<!-- 로그인 접속일자 수정	 -->
+	<update id="update_log" parameterType="String">
+		update member set log_date = sysdate where email = #{email}
+	</update>
+	
+	<!-- 나의 회원정보 수정 -->
+	<update id="update_mypage" parameterType="register">
+		update member set  pen_name = #{pen_name} where email = #{email}
+	</update>
+	
+	<!-- 나의  비밀번호 수정 -->
+	<update id="update_pw" parameterType="register">
+		update member set  pw= #{pw, jdbcType=VARCHAR} where email = #{email, jdbcType=VARCHAR}
+	</update>
+
+
+
+
+
+
+
+
+
+
+		   
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
