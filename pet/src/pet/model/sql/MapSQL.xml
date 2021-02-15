@@ -5,11 +5,14 @@
 <mapper namespace="map">
 
 	<select id = "selectAll" resultType = "hospitalDTO">
-		select * from hospital
+	<![CDATA[
+		select * from hospital where no > 79 and no < 500
+		]]>
 	</select>
 
 
 		   
 </mapper>
+
 
 
