@@ -8,16 +8,33 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+
 <c:if test="${member !=null }">
-	<input type="file"><br />
-	닉네임 = ${member.pen_name}<br />
-	이메일 = ${member.email}<br />
-	<br />
-	<input type="button" value="프로필 수정" onclick="location.href='/pet/member/mypage.do'">
-	<input type="button" value="1+1 앱 초대 이벤트" onclick="">
-	<input type="button" value="나의 리뷰(0개 등록대기중) " onclick="">
-	<input type="button" value="찜한 의사 0" onclick="">
-	<input type="button" value="나의 병원 예약 0" onclick="">
+ 	<table width="900" border="1" align="center">
+		<tr>
+			<td width="200" rowspan="2"><img src="/pet/save/${member.org_profile}">
+				<input type="button" value="프로필 수정" onclick="location.href='/pet/member/member_info.do'">
+			</td>
+			<td> 
+				${member.pen_name}
+			</td>
+		</tr>
+		<tr>
+			<td> 
+				${member.email}
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<input type="button" value="나의 리뷰(0개 등록대기중) " onclick="location.href='/pet/member/my_reviews.do'"><br />
+			<input type="button" value="찜한 의사 0" onclick="location.href='/pet/member/bookmark_doc_list'"><br />
+			<input type="button" value="나의 병원 예약 0" onclick="location.href='/pet/member/reservation_list.do'"><br />
+			<input type="button" value="스크랩한 게시글" onclick="location.href='/pet/member/reservation_list.do'"><br />
+			</td>
+		</tr>
+	</table>
+		
 </c:if>
 </body>
 </html>

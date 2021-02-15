@@ -7,12 +7,14 @@
 	<typeAliases >
 		
 		<typeAlias alias="register" type="pet.model.dto.MemberDTO" />
-		
+		<typeAlias alias="reviewDTO" type="pet.model.dto.ReviewDTO" />
+		<typeAlias alias="likeReviewDTO" type="pet.model.dto.LikeReviewDTO" />
+		<typeAlias alias="hospitalDTO" type="pet.model.dto.HospitalDTO" />
 	</typeAliases>
 
 	<mappers> 
 		<mapper resource="/pet/model/sql/sql.xml" />
-		
+		<mapper resource="/pet/model/sql/MapSQL.xml" />
 	</mappers>
 	
 

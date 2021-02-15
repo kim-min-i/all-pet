@@ -15,6 +15,7 @@ public class MemberDTO {
 	private String save_profile; // 랜덤
 	private String size_profile; // 랜덤
 	private long point; // 디폴트값 0 설정
+	private int marketing; // 마케팅 정보 동의 Y/N
 	private Date reg_date; // 가입시간
 	private Date log_date; // 마지막 로그인 시간
 	private String approval_status; // 인증 상태 
@@ -80,6 +81,12 @@ public class MemberDTO {
 	}
 	public void setPoint(long point) {
 		this.point = point;
+	}
+	public int getMarketing() {
+		return marketing;
+	}
+	public void setMarketing(int marketing) {
+		this.marketing = marketing;
 	}
 	public Date getReg_date() {
 		return reg_date;
